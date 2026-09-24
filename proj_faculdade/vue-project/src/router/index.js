@@ -1,40 +1,51 @@
 import { createRouter, createWebHistory } from 'vue-router'
+import InitView from '../views/InitView.vue'
+import HomeView from '../views/HomeView.vue'
 import LoginView from '../views/LoginView.vue'
 import RegisterView from '../views/RegisterView.vue'
-import HomeView from '../views/HomeView.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
     {
       path: '/',
-      name: 'login',
-      component: LoginView
-    },
-    {
-      path: '/cadastro',
-      name: 'cadastro',
-      component: RegisterView
+      name: 'init',
+      component: () => import('../views/InitView.vue'),
+      meta: { requerAutenticacao: false } // A tela inicial não precisa de login
     },
     {
       path: '/home',
       name: 'home',
-      component: HomeView,
-      meta: { requerAutenticacao: true } // Marca que precisa estar logado
+      component: () => import('../views/HomeView.vue'),
+      meta: { requerAutenticacao: true } // Marca que a Home precisa de login
+    },
+    {
+      path: '/login',
+      name: 'login',
+      component: () => import('../views/LoginView.vue')      
+    },
+    {
+      path: '/cadastro',
+      name: 'cadastro',
+      component: () => import('../views/RegisterView.vue')
     }
   ]
 })
 
-// Trava de Segurança: verifica antes de ir para qualquer tela
 router.beforeEach((to, from, next) => {
-  const estaLogado = localStorage.getItem('usuarioLogado')
+     const usuarioLogado = localStorage.getItem('usuarioLogado')
 
-  // Se a rota precisa de login e a pessoa NÃO está logada
-  if (to.meta.requerAutenticacao && !estaLogado) {
-    alert('Você precisa fazer login para acessar esta página!')
-    next('/') // Manda de volta para a tela de login
-  } else {
-    next() // Libera a navegação
+  // Se a rota exige autenticação e o utilizador NÃO está logado
+  if (to.meta.requerAutenticacao && !usuarioLogado) {
+    next('/login') // Redireciona para a tela de login
+  } 
+  // Se o utilizador já está logado e tenta ir para a tela de login ou inicial
+  else if (usuarioLogado && (to.path === '/login' || to.path === '/init')) {
+    next('/home')
+  } 
+  // Em qualquer outro caso, deixa navegar normalmente
+  else {
+    next()
   }
 })
 
