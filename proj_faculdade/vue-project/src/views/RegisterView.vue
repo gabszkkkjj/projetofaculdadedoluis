@@ -79,7 +79,7 @@ label { display: grid; gap: 0.3rem; font-weight: 600; font-size: 0.92rem; }
 input {
   font: inherit;
   padding: 0.65rem 0.8rem;
-  border: 1px solid #d6e3ec;
+  border: 1px solid #000000;
   border-radius: 10px;
 }
 input:focus-visible,
@@ -90,7 +90,7 @@ input:focus-visible,
   padding: 0.7rem 1rem;
   border: 0;
   border-radius: 999px;
-  background: #259feb;
+  background: #560a0a;
   color: #fff;
   cursor: pointer;
 }

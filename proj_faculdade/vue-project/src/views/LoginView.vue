@@ -60,8 +60,8 @@ function fazerLogin() {
   display: grid;
   place-items: center;
   padding: 1.25rem;
-  background: #f3f8fc;
-  color: #16262e;
+  background: transparent;
+  color: #22282c;
   font-family: 'Bricolage Grotesque', system-ui, sans-serif;
 }
 .auth__card {
@@ -91,12 +91,12 @@ input:focus-visible,
   padding: 0.7rem 1rem;
   border: 0;
   border-radius: 999px;
-  background: #259feb;
-  color: #fff;
+  background: #560a0a;
+  color: #edeaea;
   cursor: pointer;
 }
 .auth__btn:hover { filter: brightness(0.93); }
-.auth__erro { margin: 0; color: #c8443a; font-weight: 600; }
+.auth__erro { margin: 0; color: #6f1e18; font-weight: 600; }
 .auth__ok { margin: 0 0 1rem; color: #1a7a3c; font-weight: 600; }
 .auth__rodape { margin: 1.25rem 0 0; }
 .auth__rodape a { color: #1479bd; font-weight: 600; }

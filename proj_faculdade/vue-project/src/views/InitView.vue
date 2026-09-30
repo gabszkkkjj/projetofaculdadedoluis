@@ -5,10 +5,15 @@
     
     <!-- Botão direto sem router-link em volta -->
     <button class="btn-shimmer" @click="irParaLogin">lets go</button>
+     <div class="auth__card">
+    <img :src="logo" alt="Logo DAWN" class="logo"  />
+    </div>
   </div>
 
 
 </template>
+
+
 
 <style scoped>
 .init-view {
@@ -18,6 +23,9 @@
   justify-content: center;
   height: 100vh;
   text-align: center;
+  min_height: 100vh;
+  background: url('../assets/background.jpg') no-repeat center center fixed;
+  background-size: cover;
 }
   .btn-shimmer {
   position: relative;
@@ -50,6 +58,14 @@
   transition: 0.5s;
   border-radius: inherit; /* Obrigatório para não vazar os cantos retangulares */
 }
+.logo {
+  
+  display: transparent;
+  width: 180px;       /* ajuste ao gosto */
+  max-width: 80%;
+  height: auto;       /* mantém a proporção */
+  margin: 0 auto 1.5rem;
+}
 
 /* Faz o efeito passar ao passar o rato */
 
@@ -78,6 +94,8 @@ export default {
 
 <script setup>
 import { useRouter } from 'vue-router'
+import logo from '../assets/Logo1.jpg'
+
 
 const router = useRouter()
 

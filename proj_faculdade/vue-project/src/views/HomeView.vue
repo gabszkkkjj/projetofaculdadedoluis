@@ -250,10 +250,10 @@ function tratarSaida() {
 
 .home {
   --fundo: #f3f8fc;
-  --escuro: #0f2a3d;
+  --escuro: #560a0a;
   --azul: #259feb;
   --azul-texto: #1479bd;
-  --alvorada: #ffb547;
+  --alvorada: #ff0000e6;
   --coral: #c8443a;
   --texto: #16262e;
   --suave: #55696f;
