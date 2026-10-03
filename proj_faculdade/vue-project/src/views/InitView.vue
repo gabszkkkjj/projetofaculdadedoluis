@@ -6,7 +6,6 @@
     <!-- Botão direto sem router-link em volta -->
     <button class="btn-shimmer" @click="irParaLogin">lets go</button>
      <div class="auth__card">
-    <img :src="logo" alt="Logo DAWN" class="logo"  />
     </div>
   </div>
 

@@ -93,6 +93,7 @@
           @inscrever="tratarInscricao"
           @editar="abrirEdicao"
           @excluir="tratarExclusao"
+          
         />
       </div>
       <p v-else class="vazio">{{ mensagemVazia }}</p>
@@ -254,7 +255,7 @@ function tratarSaida() {
   --azul: #259feb;
   --azul-texto: #1479bd;
   --alvorada: #ff0000e6;
-  --coral: #c8443a;
+  --coral: #f7f2f1;
   --texto: #16262e;
   --suave: #55696f;
   --borda: #d6e3ec;
